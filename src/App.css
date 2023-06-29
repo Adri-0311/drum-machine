@@ -1,34 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&family=Silkscreen&display=swap');
-
-:root {
-  /* Font Family */
-  --ff-h1: 'Silkscreen', sans-serif;
-  --ff-display: 'VT323', monospace;
-
-  /* Font Size */
-  --fs-h1: 38px;
-  --fs-display: 24px;
-
-  /* Font Weight */
-  --fw-h1: bold;
-  --fw-display: 600;
-
-  /* Backgrounds colors */
-  --bg-drummachine: #e0e4e7;
-  --bg-display-wrapper: #0e0f0a;
-  --bg-display: #314076;
-  --bg-pad-wrapper: #9ba2aa;
-  --bg-pad: #939393;
-  --bg-pad-active: #6d6c6c;
-
-  /* Texy colors */
-  --c-h1: #d7172f;
-  --c-display: #54ccc2;
-
-  /* Shadows */
-  --shadow: rgba(0, 0, 0, 0.26);
-}
-
 #root {
   max-width: 1280px;
   margin: 0 auto;

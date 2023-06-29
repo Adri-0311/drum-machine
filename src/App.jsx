@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Pad from './components/Pad.jsx';
 import Display from './components/Display.jsx';
 import './App.css';
@@ -18,16 +18,21 @@ export default function App() {
 
   const [display, setDisplay] = useState('Power On');
 
+  useEffect(() => {
+    window.addEventListener('keydown', (e) => triggerPad(e));
+  }, []);
+
   const playSample = (pad) => {
     document.getElementById(pad).play();
     setDisplay(extractSampleName(pad));
   };
 
   const extractSampleName = (letra) => {
-    return keysSong.find((element) => element.letra == letra).sample;
+    return keysSong.find((element) => element.letra === letra).sample;
   };
 
   const triggerPad = (e) => {
+    console.log('Key presed:', e.key.toUpperCase());
     switch (e.key.toUpperCase()) {
       case 'Q':
         playSample('Q');
@@ -70,25 +75,24 @@ export default function App() {
 
   return (
     <div
-      id="drum-machine"
-      className="container d-flex flex-wrap flex-column flex-sm-row justify-content-around align-items-stretch gap-3 p-3"
-      onKeyDown={triggerPad}
+      id='drum-machine'
+      className='container d-flex flex-wrap flex-column flex-sm-row justify-content-around align-items-stretch gap-3 p-3'
     >
-      <h1 className="text-center">DRUM MACHINE</h1>
-      <div className="w-100"></div>
-      <div className="align-self-center d-flex flex-column order-sm-1">
-        <div className="display-wrapper d-flex flex-row justify-content-around align-items-center rounded p-2 w-100">
+      <h1 className='text-center'>DRUM MACHINE</h1>
+      <div className='w-100'></div>
+      <div className='align-self-center d-flex flex-column order-sm-1'>
+        <div className='display-wrapper d-flex flex-row justify-content-around align-items-center rounded p-2 w-100'>
           <Display soundName={display} />
         </div>
       </div>
-      <div className="buttons-wrapper order-sm-0 p-4">
+      <div className='buttons-wrapper order-sm-0 p-4'>
         {keysSong.map((item, index) => {
           return (
             <Pad
               key={index}
               letter={item.letra}
               identifier={item.sample}
-              reproducir={playSample}
+              reproduce={playSample}
             />
           );
         })}
