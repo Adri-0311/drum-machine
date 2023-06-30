@@ -74,29 +74,42 @@ export default function App() {
   };
 
   return (
-    <div
-      id='drum-machine'
-      className='container d-flex flex-wrap flex-column flex-sm-row justify-content-around align-items-stretch gap-3 p-3'
-    >
-      <h1 className='text-center'>DRUM MACHINE</h1>
-      <div className='w-100'></div>
-      <div className='align-self-center d-flex flex-column order-sm-1'>
-        <div className='display-wrapper d-flex flex-row justify-content-around align-items-center rounded p-2 w-100'>
-          <Display soundName={display} />
+    <>
+      <div
+        id='drum-machine'
+        className='container d-flex flex-wrap flex-column flex-sm-row justify-content-around align-items-stretch gap-3 p-3'
+      >
+        <h1 className='text-center'>DRUM MACHINE</h1>
+        <div className='w-100'></div>
+        <div className='align-self-center d-flex flex-column order-sm-1'>
+          <div className='display-wrapper d-flex flex-row justify-content-around align-items-center rounded p-2 w-100'>
+            <Display soundName={display} />
+          </div>
+        </div>
+        <div className='buttons-wrapper order-sm-0 p-4'>
+          {keysSong.map((item, index) => {
+            return (
+              <Pad
+                key={index}
+                letter={item.letra}
+                identifier={item.sample}
+                reproduce={playSample}
+              />
+            );
+          })}
         </div>
       </div>
-      <div className='buttons-wrapper order-sm-0 p-4'>
-        {keysSong.map((item, index) => {
-          return (
-            <Pad
-              key={index}
-              letter={item.letra}
-              identifier={item.sample}
-              reproduce={playSample}
-            />
-          );
-        })}
-      </div>
-    </div>
+
+      <p className='text-center'>
+        Original app:&nbsp;
+        <a href='https://drum-machine.freecodecamp.rocks/' target='_balank'>
+          FCC : Drum Machine
+        </a>
+      </p>
+
+      <a href='https://github.com/Adri-0311/drum-machine' className='github'>
+        <i className='fa-brands fa-github'></i>
+      </a>
+    </>
   );
 }
