@@ -32,7 +32,6 @@ export default function App() {
   };
 
   const triggerPad = (e) => {
-    console.log('Key presed:', e.key.toUpperCase());
     switch (e.key.toUpperCase()) {
       case 'Q':
         playSample('Q');
@@ -77,7 +76,7 @@ export default function App() {
     <>
       <div
         id='drum-machine'
-        className='container d-flex flex-wrap flex-column flex-sm-row justify-content-around align-items-stretch gap-3 p-3'
+        className='container d-flex flex-wrap flex-column flex-sm-row justify-content-around align-items-stretch gap-3 mb-5 p-3'
       >
         <h1 className='text-center'>DRUM MACHINE</h1>
         <div className='w-100'></div>
@@ -102,7 +101,11 @@ export default function App() {
 
       <p className='text-center'>
         Original app:&nbsp;
-        <a href='https://drum-machine.freecodecamp.rocks/' target='_balank'>
+        <a
+          href='https://drum-machine.freecodecamp.rocks/'
+          target='_balank'
+          className='original-app'
+        >
           FCC : Drum Machine
         </a>
       </p>
